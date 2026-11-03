@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Template Portofolio — Pilih Sesuai Jurusanmu</title>
+  <meta name="description" content="Katalog template portofolio modern dan profesional. Tersedia berbagai tema khusus untuk IT, Pendidikan, Teknik, Kreatif, Psikologi, dan Pariwisata." />
+  
+  <style>
+    /* ================= DESIGN TOKENS ================= */
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --border: #e2e8f0;
+      
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+      --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* ================= RESET ================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= LAYOUT ================= */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    /* ================= HEADER / NAVBAR ================= */
+    nav {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--surface);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+    }
+
+    .nav-cta {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--bg);
+      border-color: var(--primary);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      text-align: center;
+      padding: 4.5rem 0 3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background-color: #eff6ff;
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ================= CATALOG GRID ================= */
+    .catalog {
+      padding: 2rem 0 5rem;
+      flex: 1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ================= CARD ================= */
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: var(--bg);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .card:hover .card-btn {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .card-btn span {
+      margin-left: 0.5rem;
+      transition: transform 0.2s;
+    }
+
+    .card:hover .card-btn span {
+      transform: translateX(4px);
+    }
+
+    /* Card Accent Colors (garis atas) */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background-color: var(--accent, var(--primary));
+    }
+
+    .c-it { --accent: #38bdf8; }
+    .c-edu { --accent: #818cf8; }
+    .c-eng { --accent: #f97316; }
+    .c-creative { --accent: #fde047; }
+    .c-psy { --accent: #a78bfa; }
+    .c-travel { --accent: #c2553a; }
+
+    /* ================= FOOTER ================= */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      background-color: var(--surface);
+    }
+
+    /* ================= MOBILE TWEAKS ================= */
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 0 2rem; }
+      .grid { grid-template-columns: 1fr; }
+      .nav-cta { display: none; } /* Sembunyikan tombol nav di HP */
+      .card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="brand-icon">✦</span> PortofolioKita
+      </div>
+      <a href="#katalog" class="nav-cta">Lihat Katalog ↓</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="badge">Katalog Template Eksklusif</div>
+    <h1>Pilih Desain Portofolio<br>Sesuai Jurusanmu.</h1>
+    <p>Kumpulan template modern, responsif, dan profesional. Dirancang khusus untuk menonjolkan potensi dirimu di mata HRD dan rekruter.</p>
+  </header>
+
+  <!-- KATALOG -->
+  <main class="catalog container" id="katalog">
+    <div class="grid">
+      
+      <!-- TEMPLATE 1: IT -->
+      <a href="https://template1-silk.vercel.app/" target="_blank" rel="noopener" class="card c-it">
+        <div class="card-icon">💻</div>
+        <div class="card-tag">Teknologi</div>
+        <h3>IT & Developer</h3>
+        <p>Tema gelap futuristik dengan aksen biru. Cocok untuk Web Developer, Data Scientist, dan mahasiswa Informatika.</p>
+        <div class="card-btn">Lihat Preview <span>→</span></div>
+      </a>
+
+      <!-- TEMPLATE 2: PENDIDIKAN -->
+      <a href="https://template2-psi.vercel.app/" target="_blank" rel="noopener" class="card c-edu">
+        <div class="card-icon">🎓</div>
+        <div class="card-tag">Edukasi</div>
+        <h3>Pendidikan & Guru</h3>
+        <p>Tema hangat dan ramah. Menonjolkan pengalaman mengajar, media pembelajaran, dan modul ajar (PGSD/PGPAUD).</p>
+        <div class="card-btn">Lihat Preview <span>→</span></div>
+      </a>
+
+      <!-- TEMPLATE 3: TEKNIK -->
+      <a href="https://template3-cyan.vercel.app/" target="_blank" rel="noopener" class="card c-eng">
+        <div class="card-icon">⚙️</div>
+        <div class="card-tag">Rekayasa</div>
+        <h3>Teknik & Industri</h3>
+        <p>Gaya industrial dengan aksen biru baja dan oranye. Pas untuk Teknik Sipil, Mesin, Elektro, dan Arsitek.</p>
+        <div class="card-btn">Lihat Preview <span>→</span></div>
+      </a>
+
+      <!-- TEMPLATE 4: KREATIF -->
+      <a href="https://template4-delta.vercel.app/" target="_blank" rel="noopener" class="card c-creative">
+        <div class="card-icon">🎨</div>
+        <div class="card-tag">Kreatif</div>
+        <h3>Desain & Multimedia</h3>
+        <p>Gaya Neo-Brutalism yang berani dan penuh warna. Sangat cocok untuk DKV, Desainer Grafis, dan Content Creator.</p>
+        <div class="card-btn">Lihat Preview <span>→</span></div>
+      </a>
+
+      <!-- TEMPLATE 5: PSIKOLOGI -->
+      <a href="https://template5-five.vercel.app/" target="_blank" rel="noopener" class="card c-psy">
+        <div class="card-icon">💜</div>
+        <div class="card-tag">Kesehatan</div>
+        <h3>Psikologi & Sosial</h3>
+        <p>Warna pastel lavender dan mint yang menenangkan. Menampilkan asesmen, konseling, dan pengalaman PIO.</p>
+        <div class="card-btn">Lihat Preview <span>→</span></div>
+      </a>
+
+      <!-- TEMPLATE 6: PARIWISATA -->
+      <a href="https://template6-smoky.vercel.app/" target="_blank" rel="noopener" class="card c-travel">
+        <div class="card-icon">✈️</div>
+        <div class="card-tag">Pariwisata</div>
+        <h3>Travel & Kuliner</h3>
+        <p>Desain ala majalah editorial cetak dengan nuansa krem dan terracotta. Cocok untuk Travel Writer dan F&B.</p>
+        <div class="card-btn">Lihat Preview <span>→</span></div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      &copy; <span id="year"></span> PortofolioKita. Dibuat dengan ❤️ untuk masa depanmu.
+    </div>
+  </footer>
+
+  <script>
+    // Update tahun otomatis
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
